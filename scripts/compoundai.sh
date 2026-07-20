@@ -1,0 +1,86 @@
+#!/bin/bash
+
+###############################################
+# CompoundAI v0.1
+# Author: Mayank Roy Chowdhury
+# Description:
+# Generates a QSAR-ready dataset from
+# PubChem Compound IDs.
+###############################################
+
+echo "========================================"
+echo "         CompoundAI v0.1"
+echo "========================================"
+echo
+
+# Define input and output files
+INPUT="../data/compound_list.txt"
+OUTPUT="../output/Compound_Library.csv"
+
+# Check whether curl is installed
+if ! command -v curl >/dev/null 2>&1
+then
+    echo "Error: curl is not installed."
+    echo "Please install curl and try again."
+    exit 1
+fi
+
+echo "Starting CompoundAI..."
+echo
+
+echo "Input file : $INPUT"
+echo "Output file: $OUTPUT"
+echo
+
+# Check whether input file exists
+if [ ! -f "$INPUT" ]; then
+    echo "Error: Input file not found!"
+    exit 1
+fi
+
+echo "Input file found."
+echo
+
+# Convert Windows line endings to Linux
+echo "Checking input file format..."
+echo "Converting Windows line endings (if required)..."
+
+sed -i 's/\r$//' "$INPUT"
+
+echo "Input file format verified."
+echo
+
+# Create QSAR-ready dataset
+echo "Creating QSAR-ready dataset..."
+
+echo "CID,Compound_Name,Molecular_Formula,Molecular_Weight,Canonical_SMILES" > "$OUTPUT"
+
+echo "Dataset initialized."
+echo
+
+# Check PubChem connectivity
+echo "Checking PubChem connectivity..."
+
+if ! curl -Is https://pubchem.ncbi.nlm.nih.gov >/dev/null
+then
+    echo "Unable to connect to PubChem."
+    exit 1
+fi
+
+echo "Connection successful."
+echo
+
+# Read unique CIDs and query PubChem
+tail -n +2 "$INPUT" | sort | uniq | while IFS= read -r CID
+do
+    echo "Downloading compound: $CID"
+
+    curl -fs "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/$CID/property/Title,MolecularFormula,MolecularWeight,CanonicalSMILES/CSV" \
+    | tail -n +2 >> "$OUTPUT"
+done
+
+echo
+echo "QSAR-ready dataset generated successfully."
+echo "Output saved to: $OUTPUT"
+echo
+echo "Thank you for using CompoundAI."

@@ -1,0 +1,22 @@
+# Output files
+output/*
+!output/.gitkeep
+
+# Temporary files
+*.tmp
+
+# Log files
+*.log
+
+# Backup files
+*.bak
+
+# Linux editor swap files
+*.swp
+
+# macOS
+.DS_Store
+
+# Python cache (future versions)
+__pycache__/
+*.pyc
