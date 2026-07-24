@@ -211,7 +211,12 @@ Founder & Lead Developer, CompoundAI
 - LinkedIn: https://www.linkedin.com/in/dr-mayank-roy-chowdhury-1b58b911b/
 - Google Scholar: https://scholar.google.com/citations?user=eDXvgCQAAAAJ&hl=en
 
--Chief Executive Officer $ Project lead 
--"Sriparna Roy"
--Phd, Indian Institute of Technology,Delhi
--Sriparna.Roy@civil.iitd.ac.in
+### Sriparna Roy
+
+Ph.D. Scholar, Indian Institute of Technology Delhi
+
+Chief Executive Officer (CEO), Singularity Life Sciences
+
+Project Lead, CompoundAI
+
+**Email:** Sriparna.Roy@civil.iitd.ac.in
