@@ -210,13 +210,20 @@ Founder & Lead Developer, CompoundAI
 - GitHub: https://github.com/Mayankroy242
 - LinkedIn: https://www.linkedin.com/in/dr-mayank-roy-chowdhury-1b58b911b/
 - Google Scholar: https://scholar.google.com/citations?user=eDXvgCQAAAAJ&hl=en
+...
 
-### Sriparna Roy
+---
 
-Ph.D. Scholar, Indian Institute of Technology Delhi
+## Acknowledgements
+
+CompoundAI is also supported by:
+
+**Sriparna Roy**
 
 Chief Executive Officer (CEO), Singularity Life Sciences
 
-Project Lead, CompoundAI
+Ph.D. Scholar, Indian Institute of Technology Delhi
+
+Project Lead
 
 **Email:** Sriparna.Roy@civil.iitd.ac.in
