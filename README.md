@@ -222,7 +222,7 @@ CompoundAI is also supported by:
 
 Chief Executive Officer (CEO), Singularity Life Sciences
 
-Ph.D. Scholar, Indian Institute of Technology Delhi
+Ph.D., Indian Institute of Technology Delhi
 
 Project Lead
 
