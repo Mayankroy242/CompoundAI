@@ -70,13 +70,47 @@ fi
 echo "Connection successful."
 echo
 
-# Read unique CIDs and query PubChem
-tail -n +2 "$INPUT" | sort | uniq | while IFS= read -r CID
+# Read unique compounds (CID or Name)
+tail -n +2 "$INPUT" | sort | uniq | while IFS= read -r COMPOUND
 do
-    echo "Downloading compound: $CID"
 
-    curl -fs "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/$CID/property/Title,MolecularFormula,MolecularWeight,CanonicalSMILES/CSV" \
-    | tail -n +2 >> "$OUTPUT"
+    # Check if input is numeric (CID)
+    if [[ "$COMPOUND" =~ ^[0-9]+$ ]]
+    then
+        CID="$COMPOUND"
+
+    else
+        echo "Searching PubChem for compound: $COMPOUND"
+
+        CID=$(curl -fs \
+"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/$COMPOUND/cids/TXT" \
+| head -n 1)
+
+        if [ -z "$CID" ]
+        then
+            echo "Compound not found: $COMPOUND"
+            continue
+        fi
+    fi
+
+# Skip duplicate CIDs
+if [[ -n "${processed_cids[$CID]}" ]]
+then
+    echo "Skipping duplicate compound: $COMPOUND (CID: $CID)"
+    continue
+fi
+
+processed_cids[$CID]=1
+
+    echo "Downloading compound: $CID"
+    curl -fs \
+"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/$CID/property/Title,MolecularFormula,MolecularWeight,CanonicalSMILES/CSV" \
+| tail -n +2 \
+| while IFS= read -r line
+do
+    echo "$line"
+done >> "$OUTPUT"
+
 done
 
 echo
