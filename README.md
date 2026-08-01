@@ -779,9 +779,7 @@ for details.
 
 Assistant Professor (Bioinformatics)
 
-Co-Founder & Chief Technology Officer (CTO), Singularity Life Sciences
-
-Founder & Lead Developer, CompoundAI
+Lead Developer, CompoundAI
 
 ### Connect with Me
 
@@ -796,8 +794,6 @@ Founder & Lead Developer, CompoundAI
 CompoundAI is also supported by:
 
 **Sriparna Roy**
-
-Chief Executive Officer (CEO), Singularity Life Sciences
 
 Ph.D., Indian Institute of Technology Delhi
 
