@@ -72,7 +72,7 @@ This ensures that trained models are developed and evaluated independently befor
  External/Test Evaluation        Saved Scaler
           │                             │
           ▼                             │
- Best Model Selection            │
+ Best Model Selection                   │
           │                             │
           └──────────► Exported Model ◄─┘
                               │
