@@ -9,13 +9,20 @@
 ###############################################
 
 echo "========================================"
-echo "         CompoundAI v0.1"
+echo "         CompoundAI v0.2"
 echo "========================================"
 echo
 
+# Locate CompoundAI project directory
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BASE_DIR="$(dirname "$SCRIPT_DIR")"
+
 # Define input and output files
-INPUT="../data/compound_list.txt"
-OUTPUT="../output/Compound_Library.csv"
+INPUT="$BASE_DIR/data/compound_list.txt"
+OUTPUT="$BASE_DIR/output/Compound_Library.csv"
+
+# Create output directory if it does not exist
+mkdir -p "$BASE_DIR/output"
 
 # Check whether curl is installed
 if ! command -v curl >/dev/null 2>&1

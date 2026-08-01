@@ -1,0 +1,15 @@
+{
+    "target": "AChE",
+    "best_model": "Random Forest",
+    "validation_accuracy": 0.782,
+    "cross_validation_accuracy": 0.7681,
+    "activity_threshold": 6.0,
+    "descriptors": [
+        "LogP",
+        "MolWt",
+        "TPSA",
+        "RotBonds",
+        "HAcceptors",
+        "HDonors"
+    ]
+}

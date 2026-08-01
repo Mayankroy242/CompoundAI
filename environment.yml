@@ -1,0 +1,13 @@
+name: compoundai
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+  - notebook
+  - jupyter
+  - rdkit
+  - matplotlib
+  - numpy
+  - ipykernel
+  - scikit-learn
+  - pandas
